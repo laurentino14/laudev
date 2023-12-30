@@ -1,7 +1,18 @@
 import { Inter } from 'next/font/google'
 import '@/styles/globals.css'
+import { Providers } from '@/components/Providers'
 
 const inter = Inter({ subsets: ['latin'] })
+
+export default function RootLayout({ children, params }) {
+  return (
+    <html lang={params.locale}>
+      <body className={inter.className}>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
+  )
+}
 
 /** @type {import('next').Metadata} */
 export const metadata = {
@@ -9,14 +20,19 @@ export const metadata = {
     template: '%s | Lucas Laurentino',
     default: 'Lucas Laurentino - Software Engineer',
   },
+  generator: 'Next.js',
+  applicationName: 'Next.js',
+  referrer: 'origin-when-cross-origin',
+  keywords: ['Next.js', 'React', 'JavaScript'],
+  publisher: 'Sebastian Markbåge',
   description:
     'Working behind the scenes of technology, my mission is to turn ideas into reality, lines of code into functional applications, and challenges into achievements.',
   metadataBase: 'https://laudev.com.br',
   alternates: {
-    canonical: 'https://laudev.com.br/',
+    canonical: '/',
     languages: {
-      'en-US': 'https://laudev.com.br/en',
-      'pt-BR': 'https://laudev.com.br/',
+      en: '/',
+      pt: '/pt',
     },
   },
   openGraph: {
@@ -52,25 +68,8 @@ export const metadata = {
   },
   category: 'technology',
   creator: 'Lucas Laurentino',
-  authors: ['Lucas Laurentino'],
-  icons: [
-    {
-      src: 'https://cdn.laudev.com.br/icon-192x192.png',
-      sizes: '192x192',
-      type: 'image/png',
-    },
-    {
-      src: 'https://cdn.laudev.com.br/icon-512x512.png',
-      sizes: '512x512',
-      type: 'image/png',
-    },
-  ],
-}
-
-export default function RootLayout({ children }) {
-  return (
-    <html lang='en'>
-      <body className={inter.className}>{children}</body>
-    </html>
-  )
+  authors: [{ name: 'Lucas Laurentino', url: 'https://laudev.com.br' }],
+  icons: {
+    icon: 'https://cdn.laudev.com.br/icon-512x512.png',
+  },
 }
