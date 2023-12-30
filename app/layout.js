@@ -1,9 +1,9 @@
 import { Inter } from 'next/font/google'
-import './globals.css'
+import '@/styles/globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-// @type {import('next').Metadata}
+/** @type {import('next').Metadata} */
 export const metadata = {
   title: {
     template: '%s | Lucas Laurentino',
@@ -51,6 +51,20 @@ export const metadata = {
     images: ['https://cdn.laudev.com.br/og.png'], // Must be an absolute URL
   },
   category: 'technology',
+  creator: 'Lucas Laurentino',
+  authors: ['Lucas Laurentino'],
+  icons: [
+    {
+      src: 'https://cdn.laudev.com.br/icon-192x192.png',
+      sizes: '192x192',
+      type: 'image/png',
+    },
+    {
+      src: 'https://cdn.laudev.com.br/icon-512x512.png',
+      sizes: '512x512',
+      type: 'image/png',
+    },
+  ],
 }
 
 export default function RootLayout({ children }) {
