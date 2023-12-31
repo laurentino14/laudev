@@ -1,6 +1,7 @@
 import createIntlMiddleware from 'next-intl/middleware'
+import { NextRequest } from 'next/server'
 
-export default function middleware(request) {
+export default function middleware(request: NextRequest) {
   const defaultLocale = request.headers.get('x-your-custom-locale') || 'en'
   // Other implementations here
 
