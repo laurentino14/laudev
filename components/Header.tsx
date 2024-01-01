@@ -41,7 +41,7 @@ export function Header() {
   useEffect(() => {
     windowVW > 1024 && setOpen(false)
   }, [windowVW])
-  let [open, setOpen] = useState<boolean>(true)
+  let [open, setOpen] = useState<boolean>(false)
   let path = NextUsePathname()
   return (
     <header
