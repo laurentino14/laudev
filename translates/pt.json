@@ -1,5 +1,49 @@
 {
   "Home": {
-    "title": "Ola mundo!"
+    "title": "Ola mundo!",
+    "hero": {
+      "sub": "Fundador e CEO da",
+      "text": "Trabalhando nos bastidores da tecnologia, minha missão é transformar ideias em realidade, linhas de código em aplicações funcionais e desafios em conquistas."
+    }
+  },
+  "Articles": {
+    "title": "Artigos",
+    "description": "Artigos sobre tecnologia, programação, desenvolvimento de software, etc."
+  },
+  "Languages": [
+    {
+      "name": "English",
+      "code": "en"
+    },
+    {
+      "name": "Português",
+      "code": "pt"
+    }
+  ],
+  "Header": {
+    "menu": [
+      {
+        "href": "/",
+        "text": "Inicio"
+      },
+      {
+        "href": "/articles",
+        "text": "Artigos"
+      },
+      {
+        "href": "/projects",
+        "text": "Projetos"
+      },
+      {
+        "href": "/vision",
+        "text": "Visão"
+      }
+    ],
+    "drawer": {
+      "title": "Configurações",
+      "languages": "Alterar idioma",
+      "mode": "Alterar modo",
+      "close": "Fechar"
+    }
   }
 }

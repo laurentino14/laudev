@@ -1,5 +1,49 @@
 {
   "Home": {
-    "title": "Hello world!"
+    "title": "Hello world!",
+    "hero": {
+      "sub": "Founder & CEO at",
+      "text": "Working behind the scenes of technology, my mission is to turn ideas into reality, lines of code into functional applications, and challenges into achievements."
+    }
+  },
+  "Articles": {
+    "title": "Articles",
+    "description": "Articles about technology, programming, software development, and more."
+  },
+  "Languages": [
+    {
+      "name": "English",
+      "code": "en"
+    },
+    {
+      "name": "Português",
+      "code": "pt"
+    }
+  ],
+  "Header": {
+    "menu": [
+      {
+        "href": "/",
+        "text": "Home"
+      },
+      {
+        "href": "/articles",
+        "text": "Articles"
+      },
+      {
+        "href": "/projects",
+        "text": "Projects"
+      },
+      {
+        "href": "/vision",
+        "text": "Vision"
+      }
+    ],
+    "drawer": {
+      "title": "Settings",
+      "languages": "Change the language",
+      "mode": "Change the theme",
+      "close": "Close"
+    }
   }
 }

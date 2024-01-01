@@ -2,6 +2,11 @@ import { Inter } from 'next/font/google'
 import '@/styles/globals.css'
 import { Providers } from '@/components/Providers'
 import { Metadata } from 'next'
+import { HeaderProvider } from '@/components/HeaderProvider'
+import { cookies } from 'next/headers'
+import { cn } from '@/lib/utils'
+import { Footer } from '@/components/Footer'
+import * as React from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,10 +17,21 @@ export default function RootLayout({
   children: React.ReactNode
   params: { locale: string }
 }) {
+  const theme = cookies().get('theme')
+
   return (
-    <html lang={params.locale}>
-      <body className={inter.className}>
-        <Providers>{children}</Providers>
+    <html
+      lang={params.locale}
+      className={theme ? theme.value : ''}
+    >
+      <body className={cn(inter.className, 'transition-colors')}>
+        <div className=' flex min-h-screen flex-col  bg-contain bg-top bg-no-repeat'>
+          <Providers>
+            <HeaderProvider locale={params.locale} />
+            {children}
+            <Footer />
+          </Providers>
+        </div>
       </body>
     </html>
   )
