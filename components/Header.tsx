@@ -126,7 +126,7 @@ export function Header() {
           </NextLink>
           <SwitchTheme />
         </div>
-        <div className='flex w-[9.5rem] items-center justify-end gap-10 lg:hidden'>
+        <div className='flex w-[9.5rem] items-center justify-end gap-2 lg:hidden'>
           <div>
             <Drawer>
               <DrawerTrigger asChild>
