@@ -8,10 +8,10 @@ export default function Home(props: { params: { locale: string } }) {
   return (
     <main className=' flex   flex-1 flex-col items-center justify-center '>
       <div className='max-w-2xl px-4'>
-        <h1 className='text-center text-5xl font-black tracking-[7.2px] dark:text-white'>
+        <h1 className='text-center text-3xl font-black tracking-[7.2px] sm:text-5xl dark:text-white'>
           LUCAS LAURENTINO
         </h1>
-        <h2 className='flex items-center justify-center space-x-2 text-xl font-semibold'>
+        <h2 className='items-top flex justify-center space-x-2 text-sm font-semibold sm:items-center sm:text-xl'>
           <span className='tracking-[3px] text-black/50 dark:text-white/50'>
             {t('hero.sub')}
           </span>
@@ -31,7 +31,7 @@ export default function Home(props: { params: { locale: string } }) {
             />
           </NextLink>
         </h2>
-        <p className='mt-12 max-w-xl text-balance text-center font-medium tracking-[-0.8px] dark:text-white'>
+        <p className='mt-12 max-w-xl text-balance text-center font-medium tracking-[-0.8px] sm:text-base dark:text-white'>
           {t('hero.text')}
         </p>
       </div>
