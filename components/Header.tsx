@@ -1,5 +1,5 @@
 'use client'
-import { useMessages } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { NextLink } from '@/components/NextLink'
 import { cn } from '@/lib/utils'
 import { NextUsePathname } from '@/components/NextUsePathname'
@@ -23,9 +23,9 @@ import { Squash as Hamburger } from 'hamburger-react'
 import { useEffect, useState } from 'react'
 
 export function Header() {
-  let messages: any = useMessages()
-  let menu = messages.header.menu
-  let drawer = messages.header.drawer
+  let t: any = useTranslations('header')
+  const menu = ['home', 'articles', 'projects', 'vision'] as const
+
   const [windowVW, setWindowVW] = useState<number>(0)
   useEffect(() => {
     window.addEventListener('resize', () => {
@@ -70,15 +70,15 @@ export function Header() {
           />
         </NextLink>
         <nav className='hidden lg:flex'>
-          {menu.map((item: { href: string; text: string }, i: number) => {
-            const isActive = path === item.href
+          {menu.map((it: string, i: number) => {
+            const isActive = path === t(`menu.${it}.href`)
             return (
               <NextLink
                 className={cn('relative ', {
                   'font-medium': isActive,
                 })}
                 key={i}
-                href={item.href}
+                href={t(`menu.${it}.href`)}
               >
                 <div className='relative px-2'>
                   <span
@@ -89,7 +89,7 @@ export function Header() {
                       },
                     )}
                   >
-                    {item.text}
+                    {t(`menu.${it}.text`)}
                   </span>
                   {isActive && (
                     <motion.div
@@ -143,26 +143,26 @@ export function Header() {
               <DrawerContent>
                 <DrawerHeader>
                   <DrawerTitle className='mt-4 text-center'>
-                    {drawer.title}
+                    {t('drawer.title')}
                   </DrawerTitle>
                 </DrawerHeader>
                 <div className='flex items-center justify-center space-x-10 py-10'>
                   <div className='flex flex-col items-center justify-center space-y-2'>
                     <h3 className=' text-sm font-medium text-foreground'>
-                      {drawer.languages}
+                      {t('drawer.languages')}
                     </h3>
                     <SelectLang />
                   </div>
                   <div className='space-y-2 text-center'>
                     <h3 className=' text-sm font-medium text-foreground'>
-                      {drawer.mode}
+                      {t('drawer.mode')}
                     </h3>
                     <SwitchTheme />
                   </div>
                 </div>
                 <DrawerFooter>
-                  <DrawerClose>
-                    <Button className='w-full'>{drawer.close}</Button>
+                  <DrawerClose asChild>
+                    <Button className='w-full'>{t('drawer.close')}</Button>
                   </DrawerClose>
                 </DrawerFooter>
               </DrawerContent>
@@ -182,8 +182,8 @@ export function Header() {
           hidden: !open,
         })}
       >
-        {menu.map((item: { href: string; text: string }, i: number) => {
-          const isActive = path === item.href
+        {menu.map((it: string, i: number) => {
+          const isActive = path === t(`menu.${it}.href`)
           return (
             <NextLink
               onClick={e => setOpen(false)}
@@ -191,7 +191,7 @@ export function Header() {
                 'font-medium': isActive,
               })}
               key={'menu-' + i}
-              href={item.href}
+              href={t(`menu.${it}.href`)}
             >
               <div className='relative px-4 py-4 text-end'>
                 <span
@@ -202,7 +202,7 @@ export function Header() {
                     },
                   )}
                 >
-                  {item.text}
+                  {t(`menu.${it}.text`)}
                 </span>
                 {isActive && (
                   <motion.div className='absolute bottom-0 left-0 z-[-1] h-full w-full rounded-lg bg-black dark:bg-white ' />

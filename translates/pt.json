@@ -1,49 +1,54 @@
 {
-  "Home": {
-    "title": "Ola mundo!",
-    "hero": {
-      "sub": "Fundador & CEO da",
-      "text": "Trabalhando nos bastidores da tecnologia, minha missão é transformar ideias em realidade, linhas de código em aplicações funcionais e desafios em conquistas."
-    }
-  },
-  "Articles": {
-    "title": "Artigos",
-    "description": "Artigos sobre tecnologia, programação, desenvolvimento de software, etc."
-  },
-  "Languages": [
-    {
-      "name": "English",
-      "code": "en"
+  "page": {
+    "home": {
+      "title": "Ola mundo!",
+      "hero": {
+        "sub": "Fundador & CEO da",
+        "text": "Trabalhando nos bastidores da tecnologia, minha missão é transformar ideias em realidade, linhas de código em aplicações funcionais e desafios em conquistas."
+      }
     },
-    {
-      "name": "Português",
-      "code": "pt"
+    "articles": {
+      "title": "Artigos",
+      "description": "Artigos sobre tecnologia, programação, desenvolvimento de software, etc."
     }
-  ],
-  "Header": {
-    "menu": [
-      {
+  },
+  "header": {
+    "menu": {
+      "home": {
         "href": "/",
         "text": "Inicio"
       },
-      {
+      "articles": {
         "href": "/articles",
         "text": "Artigos"
       },
-      {
+      "projects": {
         "href": "/projects",
         "text": "Projetos"
       },
-      {
+      "vision": {
         "href": "/vision",
         "text": "Visão"
       }
-    ],
+    },
     "drawer": {
       "title": "Configurações",
       "languages": "Alterar idioma",
       "mode": "Alterar modo",
       "close": "Fechar"
+    }
+  },
+  "configs": {
+    "locale": "pt",
+    "languages": {
+      "en": {
+        "name": "English",
+        "code": "en"
+      },
+      "pt": {
+        "name": "Português",
+        "code": "pt"
+      }
     }
   }
 }

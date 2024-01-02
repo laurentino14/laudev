@@ -1,49 +1,54 @@
 {
-  "Home": {
-    "title": "Hello world!",
-    "hero": {
-      "sub": "Founder & CEO at",
-      "text": "Working behind the scenes of technology, my mission is to turn ideas into reality, lines of code into functional applications, and challenges into achievements."
-    }
-  },
-  "Articles": {
-    "title": "Articles",
-    "description": "Articles about technology, programming, software development, and more."
-  },
-  "Languages": [
-    {
-      "name": "English",
-      "code": "en"
+  "page": {
+    "home": {
+      "title": "Hello world!",
+      "hero": {
+        "sub": "Founder & CEO at",
+        "text": "Working behind the scenes of technology, my mission is to turn ideas into reality, lines of code into functional applications, and challenges into achievements."
+      }
     },
-    {
-      "name": "Português",
-      "code": "pt"
+    "articles": {
+      "title": "Articles",
+      "description": "Articles about technology, programming, software development, and more."
     }
-  ],
-  "Header": {
-    "menu": [
-      {
+  },
+  "header": {
+    "menu": {
+      "home": {
         "href": "/",
         "text": "Home"
       },
-      {
+      "articles": {
         "href": "/articles",
         "text": "Articles"
       },
-      {
+      "projects": {
         "href": "/projects",
         "text": "Projects"
       },
-      {
+      "vision": {
         "href": "/vision",
         "text": "Vision"
       }
-    ],
+    },
     "drawer": {
       "title": "Settings",
       "languages": "Change the language",
       "mode": "Change the theme",
       "close": "Close"
+    }
+  },
+  "configs": {
+    "locale": "en",
+    "languages": {
+      "en": {
+        "name": "English",
+        "code": "en"
+      },
+      "pt": {
+        "name": "Português",
+        "code": "pt"
+      }
     }
   }
 }

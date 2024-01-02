@@ -2,11 +2,11 @@ import { Inter } from 'next/font/google'
 import '@/styles/globals.css'
 import { Providers } from '@/components/Providers'
 import { Metadata } from 'next'
-import { HeaderProvider } from '@/components/HeaderProvider'
 import { cookies } from 'next/headers'
 import { cn } from '@/lib/utils'
 import { Footer } from '@/components/Footer'
 import * as React from 'react'
+import { Header } from '@/components/Header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className={cn(inter.className, 'transition-colors')}>
         <div className=' flex min-h-screen flex-col  bg-contain bg-top bg-no-repeat'>
           <Providers>
-            <HeaderProvider locale={params.locale} />
+            <Header />
             {children}
             <Footer />
           </Providers>

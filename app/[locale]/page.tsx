@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { NextLink } from '@/components/NextLink'
 
 export default function Home(props: { params: { locale: string } }) {
-  const t = useTranslations('Home')
+  const t = useTranslations('page.home')
 
   return (
     <main className=' flex   flex-1 flex-col items-center justify-center '>

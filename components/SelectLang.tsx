@@ -6,18 +6,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { useMessages } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { NextUseRouter } from '@/components/NextUseRouter'
 import { NextUsePathname } from '@/components/NextUsePathname'
 import Cookies from 'js-cookie'
 
 export function SelectLang() {
-  let messages: any = useMessages()
-  let languages = messages.languages
+  const languages = ['en', 'pt'] as const
   let router = NextUseRouter()
   let path = NextUsePathname()
-  let locale = messages.locale
-
+  let t = useTranslations('configs')
   return (
     <Select
       onValueChange={e => {
@@ -29,22 +27,22 @@ export function SelectLang() {
         <SelectValue
           placeholder={
             <Lang
-              locale={locale}
-              languages={languages}
+              locale={t('locale')}
+              name={t(`languages.${t('locale')}.name`)}
             />
           }
         />
       </SelectTrigger>
       <SelectContent>
-        {languages.map((item: { code: string; name: string }, i: number) => {
+        {languages.map((it: string, i: number) => {
           return (
             <SelectItem
               key={i}
-              value={item.code}
+              value={t(`languages.${it}.code`)}
             >
               <Lang
-                locale={item.code}
-                languages={languages}
+                locale={t(`languages.${it}.code`)}
+                name={t(`languages.${it}.name`)}
               />
             </SelectItem>
           )
@@ -54,16 +52,7 @@ export function SelectLang() {
   )
 }
 
-export function Lang({
-  locale,
-  languages,
-}: {
-  locale: string
-  languages: any
-}) {
-  let name = languages.find(
-    (item: { code: string }) => item.code === locale,
-  ).name
+export function Lang({ locale, name }: { locale: string; name: string }) {
   let icon = locale === 'en' ? '🇺🇸' : '🇧🇷'
   return (
     <span className='space-x-2'>
