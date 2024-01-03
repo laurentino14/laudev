@@ -186,7 +186,7 @@ export function Header() {
           const isActive = path === t(`menu.${it}.href`)
           return (
             <NextLink
-              onClick={e => setOpen(false)}
+              onClick={() => setOpen(false)}
               className={cn('relative mt-5 ', {
                 'font-medium': isActive,
               })}
@@ -196,7 +196,7 @@ export function Header() {
               <div className='relative px-4 py-4 text-end'>
                 <span
                   className={cn(
-                    '  text-neutral-400 mix-blend-exclusion dark:text-foreground',
+                    'text-neutral-400 mix-blend-exclusion dark:text-foreground',
                     {
                       'hover:text-white dark:hover:text-white/80': !isActive,
                     },

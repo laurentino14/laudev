@@ -9,7 +9,11 @@
     },
     "articles": {
       "title": "Articles",
-      "description": "Articles about technology, programming, software development, and more."
+      "description": "Articles about technology, programming, software development, etc.",
+      "latest-articles": "Latest articles",
+      "read-more": "Read article completely",
+      "authors": "Written by",
+      "published-at": "Article published at "
     }
   },
   "header": {
