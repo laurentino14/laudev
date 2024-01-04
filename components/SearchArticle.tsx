@@ -54,17 +54,22 @@ export function SearchArticle({ articles }: { articles: ArticleItemList[] }) {
     }
   }, [search, articles])
 
-  useEffect(() => {
-    ref.current?.addEventListener('focusout', e => {
-      e.preventDefault()
-      // @ts-ignore
-      if (e.relatedTarget?.href! !== undefined) {
+  useEffect(
+    () => {
+      ref.current?.addEventListener('focusout', e => {
+        e.preventDefault()
         // @ts-ignore
-        router.push(e.relatedTarget?.href!)
-      }
-      setIsOpen(false)
-    })
-  }, [])
+        if (e.relatedTarget?.href! !== undefined) {
+          // @ts-ignore
+          router.push(e.relatedTarget?.href!)
+        }
+        setIsOpen(false)
+      })
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // @ts-ignore
+    [],
+  )
 
   let t = useTranslations('page.articles')
 
