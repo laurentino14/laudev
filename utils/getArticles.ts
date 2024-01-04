@@ -1,8 +1,8 @@
-import * as fs from 'fs'
 import path from 'node:path'
 import matter from 'gray-matter'
 import { enUS, ptBR } from 'date-fns/locale'
 import { formatDistance } from 'date-fns'
+import * as fs from 'fs'
 
 export type ArticleItemList = {
   title: string

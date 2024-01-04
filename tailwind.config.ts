@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import { nextui } from '@nextui-org/theme'
 
 const config = {
   darkMode: ['class'],
@@ -7,6 +8,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
+    './node_modules/@nextui-org/theme/dist/components/(spinner|scroll-shadow).js',
   ],
   prefix: '',
   theme: {
@@ -78,6 +80,7 @@ const config = {
     require('tailwindcss-animate'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/container-queries'),
+    nextui({}),
   ],
 } satisfies Config
 

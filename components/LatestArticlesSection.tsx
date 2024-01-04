@@ -7,9 +7,10 @@ import {
   CarouselItem,
 } from '@/components/ui/carousel'
 import { ArticleItemList } from '@/utils/getArticles'
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
 import { useTranslations } from 'next-intl'
+import { Spinner } from '@nextui-org/spinner'
 
 export function LatestArticlesSection({
   latest,
@@ -41,10 +42,25 @@ export function LatestArticlesSection({
       <section className='hidden flex-col gap-5 lg:flex lg:flex-row'>
         {latest.map((article, i) => {
           return (
-            <LatestArticle
+            <Suspense
               key={i}
-              {...article}
-            />
+              fallback={
+                <Spinner
+                  classNames={{
+                    wrapper: 'h-72 w-72',
+                    circle1: 'border-b-foreground border-b-5',
+                    circle2: 'border-b-foreground/70 border-b-5',
+                  }}
+                  color='danger'
+                  size='lg'
+                />
+              }
+            >
+              <LatestArticle
+                key={i}
+                {...article}
+              />
+            </Suspense>
           )
         })}
       </section>
@@ -55,12 +71,27 @@ export function LatestArticlesSection({
         <CarouselContent>
           {latest.map((article, i) => {
             return (
-              <CarouselItem key={i}>
-                <LatestArticle
-                  key={i}
-                  {...article}
-                />
-              </CarouselItem>
+              <Suspense
+                key={i}
+                fallback={
+                  <Spinner
+                    classNames={{
+                      wrapper: 'h-72 w-72',
+                      circle1: 'border-b-foreground border-b-5',
+                      circle2: 'border-b-foreground/70 border-b-5',
+                    }}
+                    color='danger'
+                    size='lg'
+                  />
+                }
+              >
+                <CarouselItem key={i}>
+                  <LatestArticle
+                    key={i}
+                    {...article}
+                  />
+                </CarouselItem>
+              </Suspense>
             )
           })}
         </CarouselContent>

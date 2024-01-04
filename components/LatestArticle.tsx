@@ -26,7 +26,7 @@ export function LatestArticle({
     <Card className='max-w-1/2 w-full overflow-hidden shadow-none @container'>
       <div className='flex flex-col @2xl:flex-row'>
         <NextLink
-          href={`articles/${slug}`}
+          href={`read/${slug}`}
           passHref
         >
           <div className='group relative h-48 overflow-hidden @sm:h-96   @2xl:h-full @2xl:min-w-96 '>
@@ -79,7 +79,9 @@ export function LatestArticle({
             </p>
           </CardContent>
           <CardFooter>
-            <Button>Ler artigo completo</Button>
+            <Button asChild>
+              <NextLink href={`read/${slug}`}>Ler artigo completo</NextLink>
+            </Button>
           </CardFooter>
         </div>
       </div>

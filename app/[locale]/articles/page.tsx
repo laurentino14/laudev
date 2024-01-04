@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server'
 import { GetArticles } from '@/utils/getArticles'
 import { compareDesc } from 'date-fns'
 import { LatestArticlesSection } from '@/components/LatestArticlesSection'
+import { SearchArticle } from '@/components/SearchArticle'
 
 export async function generateMetadata({
   params: { locale },
@@ -24,7 +25,10 @@ export default function Articles({ params }: { params: { locale: string } }) {
     .slice(0, 2)
   const rest = allArticles.slice(2)
   return (
-    <main className='container'>
+    <main className='container mt-20'>
+      <div className='flex w-full justify-end'>
+        <SearchArticle articles={allArticles} />
+      </div>
       <LatestArticlesSection latest={latest} />
     </main>
   )

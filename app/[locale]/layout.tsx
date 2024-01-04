@@ -25,13 +25,13 @@ export default function RootLayout({
       className={theme ? theme.value : ''}
     >
       <body className={cn(inter.className, 'transition-colors')}>
-        <div className=' flex min-h-screen flex-col  bg-contain bg-top bg-no-repeat'>
-          <Providers>
+        <Providers>
+          <div className=' flex min-h-screen flex-col  bg-contain bg-top bg-no-repeat'>
             <Header />
             {children}
             <Footer />
-          </Providers>
-        </div>
+          </div>
+        </Providers>
       </body>
     </html>
   )

@@ -10,6 +10,7 @@
     "articles": {
       "title": "Articles",
       "description": "Articles about technology, programming, software development, etc.",
+      "search": "Search for articles...",
       "latest-articles": "Latest articles",
       "read-more": "Read article completely",
       "authors": "Written by",
