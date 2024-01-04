@@ -14,7 +14,6 @@ import { cn } from '@/lib/utils'
 import { Spinner } from '@nextui-org/spinner'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { NextUseRouter } from '@/components/NextUseRouter'
-import { NextLink } from '@/components/NextLink'
 import { useTranslations } from 'next-intl'
 
 function searchArticle(search: string, articles: ArticleItemList[]) {
@@ -54,22 +53,9 @@ export function SearchArticle({ articles }: { articles: ArticleItemList[] }) {
     }
   }, [search, articles])
 
-  useEffect(
-    () => {
-      ref.current?.addEventListener('focusout', e => {
-        e.preventDefault()
-        // @ts-ignore
-        if (e.relatedTarget?.href! !== undefined) {
-          // @ts-ignore
-          router.push(e.relatedTarget?.href!)
-        }
-        setIsOpen(false)
-      })
-    },
-    // @ts-ignore
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
-  )
+  useEffect(() => {
+    ref.current?.addEventListener('blur', e => setIsOpen(false))
+  }, [router])
 
   let t = useTranslations('page.articles')
 
@@ -97,7 +83,6 @@ export function SearchArticle({ articles }: { articles: ArticleItemList[] }) {
             },
           )}
         >
-          {' '}
           <ScrollArea
             className={cn({
               'h-96 max-h-96 w-full max-w-80 ': isOpen,
@@ -116,10 +101,11 @@ export function SearchArticle({ articles }: { articles: ArticleItemList[] }) {
                 {contentMemo && contentMemo?.length > 0 ? (
                   contentMemo?.map((article, i) => {
                     return (
-                      <NextLink
-                        href={`read/${article.slug}`}
+                      <div
+                        onClick={e => router.push(`read/${article.slug}`)}
+                        onTouchStart={e => router.push(`read/${article.slug}`)}
                         key={i}
-                        className='group z-[7] flex flex-col gap-2'
+                        className='group flex flex-col gap-2'
                       >
                         <Card className='group mx-2 space-y-2 rounded-md border-none p-2 shadow-none transition-colors duration-100 group-hover:bg-foreground/20'>
                           <CardTitle className=''>{article.title}</CardTitle>
@@ -130,7 +116,7 @@ export function SearchArticle({ articles }: { articles: ArticleItemList[] }) {
                         {contentMemo && i < contentMemo?.length - 1 && (
                           <hr className='mt-2' />
                         )}
-                      </NextLink>
+                      </div>
                     )
                   })
                 ) : (
