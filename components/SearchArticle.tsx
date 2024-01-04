@@ -66,8 +66,8 @@ export function SearchArticle({ articles }: { articles: ArticleItemList[] }) {
         setIsOpen(false)
       })
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     // @ts-ignore
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
   )
 
