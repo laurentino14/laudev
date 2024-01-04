@@ -1,8 +1,14 @@
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { NextLink } from '@/components/NextLink'
+import { unstable_setRequestLocale } from 'next-intl/server'
 
-export default function Home(props: { params: { locale: string } }) {
+export default function Home({
+  params: { locale },
+}: {
+  params: { locale: string }
+}) {
+  unstable_setRequestLocale(locale)
   const t = useTranslations('page.home')
 
   return (

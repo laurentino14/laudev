@@ -29,7 +29,7 @@ function searchArticle(search: string, articles: ArticleItemList[]) {
       articlesResponse.push(article)
     })
 
-  articlesResponse.sort((a, b) => a.title.localeCompare(b.title))
+  articlesResponse.sort((a, b) => b.date.real.getTime() - a.date.real.getTime())
 
   return articlesResponse
 }
@@ -54,8 +54,13 @@ export function SearchArticle({ articles }: { articles: ArticleItemList[] }) {
   }, [search, articles])
 
   useEffect(() => {
-    ref.current?.addEventListener('blur', e => setIsOpen(false))
-  }, [router])
+    ref.current?.addEventListener('focusout', e => {
+      if (e.relatedTarget?.dispatchEvent(new Event('click'))) {
+        return
+      }
+      setIsOpen(false)
+    })
+  }, [])
 
   let t = useTranslations('page.articles')
 
@@ -101,13 +106,21 @@ export function SearchArticle({ articles }: { articles: ArticleItemList[] }) {
                 {contentMemo && contentMemo?.length > 0 ? (
                   contentMemo?.map((article, i) => {
                     return (
-                      <div
-                        onClick={e => router.push(`read/${article.slug}`)}
-                        onTouchStart={e => router.push(`read/${article.slug}`)}
+                      <button
+                        onClick={e => {
+                          e.preventDefault()
+                          setIsOpen(false)
+                          router.push(`read/${article.slug}`)
+                        }}
+                        onTouchStart={e => {
+                          e.preventDefault()
+                          setIsOpen(false)
+                          router.push(`read/${article.slug}`)
+                        }}
                         key={i}
-                        className='group flex flex-col gap-2'
+                        className='group flex w-full flex-col gap-2 text-left '
                       >
-                        <Card className='group mx-2 space-y-2 rounded-md border-none p-2 shadow-none transition-colors duration-100 group-hover:bg-foreground/20'>
+                        <Card className=' mx-2 space-y-2 rounded-md border-none p-2 shadow-none transition-colors duration-100 group-hover:cursor-pointer group-hover:bg-foreground/20'>
                           <CardTitle className=''>{article.title}</CardTitle>
                           <CardDescription className='line-clamp-3 text-xs'>
                             {article.description}
@@ -116,7 +129,7 @@ export function SearchArticle({ articles }: { articles: ArticleItemList[] }) {
                         {contentMemo && i < contentMemo?.length - 1 && (
                           <hr className='mt-2' />
                         )}
-                      </div>
+                      </button>
                     )
                   })
                 ) : (

@@ -1,13 +1,17 @@
 import { ReactNode } from 'react'
 
-export default function RootLayout(props: {
+export default function RootLayout({
+  children,
+  modal,
+}: {
   children: ReactNode
   modal: ReactNode
 }) {
   return (
     <>
-      {props.children}
-      {props.modal}
+      {children}
+
+      {modal}
     </>
   )
 }

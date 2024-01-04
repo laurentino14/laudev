@@ -54,7 +54,7 @@ export function ModalRead({ data }: { data: Article }) {
           </DialogHeader>
         </DialogContent>
       </DialogPortal>
-      <DialogOverlay />
+      <DialogOverlay className='bg-foreground/50 backdrop-blur-[1px]' />
     </Dialog>
   )
 }

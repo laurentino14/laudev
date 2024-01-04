@@ -1,5 +1,5 @@
-import { ModalRead } from '@/app/[locale]/articles/@modal/(..)read/[slug]/modal'
 import { GetArticle } from '@/utils/getArticle'
+import { ModalRead } from '@/app/[locale]/articles/@modal/(..)read/[slug]/modal'
 
 export default function ReadPage({
   params: { slug, locale },

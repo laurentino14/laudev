@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function RootLayout({
   children,
-  params,
+  params: { locale },
 }: {
   children: React.ReactNode
   params: { locale: string }
@@ -21,7 +21,7 @@ export default function RootLayout({
 
   return (
     <html
-      lang={params.locale}
+      lang={locale}
       className={theme ? theme.value : ''}
     >
       <body className={cn(inter.className, 'transition-colors')}>
