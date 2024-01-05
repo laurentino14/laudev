@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils'
 import { Footer } from '@/components/Footer'
 import * as React from 'react'
 import { Header } from '@/components/Header'
+import { Analytics } from '@vercel/analytics/react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,7 +25,7 @@ export default function RootLayout({
       lang={locale}
       className={theme ? theme.value : ''}
     >
-      <body className={cn(inter.className, 'transition-colors')}>
+      <body className={cn(inter.className, 'transgitition-colors')}>
         <Providers>
           <div className=' flex min-h-screen flex-col  bg-contain bg-top bg-no-repeat'>
             <Header />
@@ -32,6 +33,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </Providers>
+        <Analytics />
       </body>
     </html>
   )
