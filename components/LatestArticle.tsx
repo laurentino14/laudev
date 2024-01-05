@@ -12,6 +12,7 @@ import { NextLink } from '@/components/NextLink'
 import { Button } from '@/components/ui/button'
 import { useTranslations } from 'next-intl'
 import { Badge } from '@/components/ui/badge'
+import { ReaderIcon } from '@/components/icons/ReaderIcon'
 
 export function LatestArticle({
   date,
@@ -34,7 +35,7 @@ export function LatestArticle({
               src={banner}
               alt={title}
               quality={100}
-              sizes='(min-width: 1536px) 640px, (min-width: 1280px) 50vw, (min-width: 768px) 100vw, 100vw'
+              sizes=' 100vw'
               priority
               className='transition-transform duration-150 sm:group-hover:scale-105'
               fill
@@ -46,7 +47,7 @@ export function LatestArticle({
         </NextLink>
         <div className='flex flex-col @2xl:justify-between'>
           <CardHeader>
-            <CardTitle className='line-clamp-2'>{title}</CardTitle>
+            <CardTitle className='line-clamp-2 pb-px  '>{title}</CardTitle>
             <CardDescription className='flex flex-col'>
               <span>
                 {t('published-at')}
@@ -56,15 +57,14 @@ export function LatestArticle({
                 {t('authors')}
                 {authors.map((at, i) => (
                   <div key={i}>
-                    <Badge className='w-fit px-1 py-0 text-xs'>
+                    <Badge className='w-fit px-1 py-0 text-xs hover:bg-foreground'>
                       {`@${at}`}
                     </Badge>
                     <span>
-                      {' '}
                       {i < authors.length - 2
                         ? `,`
                         : i === authors.length - 2
-                          ? `e`
+                          ? `   e`
                           : i === authors.length - 1 && `.`}
                     </span>
                   </div>
@@ -80,7 +80,13 @@ export function LatestArticle({
           </CardContent>
           <CardFooter>
             <Button asChild>
-              <NextLink href={`read/${slug}`}>Ler artigo completo</NextLink>
+              <NextLink
+                href={`read/${slug}`}
+                className='flex items-center space-x-1'
+              >
+                <ReaderIcon />
+                <span>{t('read-more')}</span>
+              </NextLink>
             </Button>
           </CardFooter>
         </div>
