@@ -25,7 +25,7 @@ export default function RootLayout({
       lang={locale}
       className={theme ? theme.value : ''}
     >
-      <body className={cn(inter.className, 'transgitition-colors')}>
+      <body className={cn(inter.className, 'transition-colors')}>
         <Providers>
           <div className=' flex min-h-screen flex-col  bg-contain bg-top bg-no-repeat'>
             <Header />
