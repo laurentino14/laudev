@@ -57,7 +57,7 @@ export function LatestArticle({
                 {t('authors')}
                 {authors.map((at, i) => (
                   <div key={i}>
-                    <Badge className='w-fit px-1 py-0 text-xs hover:bg-foreground'>
+                    <Badge className='w-fit px-1 py-0 text-xs hover:!bg-foreground dark:hover:!bg-white '>
                       {`@${at}`}
                     </Badge>
                     <span>
@@ -79,7 +79,10 @@ export function LatestArticle({
             </p>
           </CardContent>
           <CardFooter>
-            <Button asChild>
+            <Button
+              aria-label={t('read-more')}
+              asChild
+            >
               <NextLink
                 href={`read/${slug}`}
                 className='flex items-center space-x-1'

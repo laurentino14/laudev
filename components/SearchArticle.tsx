@@ -120,7 +120,7 @@ export function SearchArticle({ articles }: { articles: ArticleItemList[] }) {
                         key={i}
                         className='group flex w-full flex-col gap-2 text-left '
                       >
-                        <Card className=' mx-2 space-y-2 rounded-md border-none p-2 shadow-none transition-colors duration-100 group-hover:cursor-pointer group-hover:bg-foreground/20'>
+                        <Card className=' mx-2 space-y-2 rounded-md border-none p-2 shadow-none transition-colors duration-100 hover:outline hover:outline-1 hover:outline-foreground/10 group-hover:cursor-pointer group-hover:bg-foreground/[1%]'>
                           <CardTitle className=''>{article.title}</CardTitle>
                           <CardDescription className='line-clamp-3 text-xs'>
                             {article.description}

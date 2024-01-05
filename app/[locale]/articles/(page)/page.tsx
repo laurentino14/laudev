@@ -4,8 +4,7 @@ import { GetArticles } from '@/utils/getArticles'
 import { compareDesc } from 'date-fns'
 import { LatestArticlesSection } from '@/components/sections/LatestArticlesSection'
 import { SearchArticle } from '@/components/SearchArticle'
-import { Suspense } from 'react'
-import { LatestArticlesSectionSuspense } from '@/components/sections/LatestArticlesSectionSuspense'
+import { RestArticle } from '@/components/RestArticle'
 
 export default function Articles({
   params: { locale },
@@ -16,15 +15,42 @@ export default function Articles({
   const latest = allArticles
     .sort((a, b) => compareDesc(a.date.real, b.date.real))
     .slice(0, 2)
-  const rest = allArticles.slice(2)
+  const rest = [
+    ...allArticles.slice(2),
+    ...allArticles.slice(2),
+    ...allArticles.slice(2),
+    ...allArticles.slice(2),
+    ...allArticles.slice(2),
+    ...allArticles.slice(2),
+    ...allArticles.slice(2),
+    ...allArticles.slice(2),
+    ...allArticles.slice(2),
+    ...allArticles.slice(2),
+    ...allArticles.slice(2),
+    ...allArticles.slice(2),
+    ...allArticles.slice(2),
+    ...allArticles.slice(2),
+    ...allArticles.slice(2),
+    ...allArticles.slice(2),
+    ...allArticles.slice(2),
+    ...allArticles.slice(2),
+    ...allArticles.slice(2),
+    ...allArticles.slice(2),
+  ]
   return (
-    <main className='container mt-20'>
-      <div className='flex w-full justify-end'>
+    <main className='container my-20 flex-1'>
+      <section className='flex w-full justify-end'>
         <SearchArticle articles={allArticles} />
-      </div>
-      <Suspense fallback={<LatestArticlesSectionSuspense />}>
-        <LatestArticlesSection latest={latest} />
-      </Suspense>
+      </section>
+      <LatestArticlesSection latest={latest} />
+      <section className='relative mt-20 grid w-full grid-cols-3 gap-10 '>
+        {rest.map((article, i) => (
+          <RestArticle
+            key={i}
+            {...article}
+          />
+        ))}
+      </section>
     </main>
   )
 }
