@@ -1,4 +1,4 @@
-import { ArticleItemList } from '@/utils/getArticles'
+import { NextLink } from '@/components/NextLink'
 import {
   Card,
   CardContent,
@@ -6,8 +6,9 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { ArticleItemList } from '@/utils/getArticles'
 import { useTranslations } from 'next-intl'
-import { NextLink } from '@/components/NextLink'
+import { BorderBeam } from './magicui/border-beam'
 
 export function RestArticle({
   date,
@@ -35,6 +36,11 @@ export function RestArticle({
             {description}
           </p>
         </CardContent>
+        <BorderBeam
+          size={200}
+          duration={9}
+          className='opacity-0 transition-opacity duration-300 group-hover:opacity-100'
+        />
       </Card>
     </NextLink>
   )

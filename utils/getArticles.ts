@@ -1,8 +1,8 @@
-import path from 'node:path'
-import matter from 'gray-matter'
-import { enUS, ptBR } from 'date-fns/locale'
 import { formatDistance } from 'date-fns'
+import { enUS, ptBR } from 'date-fns/locale'
 import * as fs from 'fs'
+import matter from 'gray-matter'
+import path from 'node:path'
 
 export type ArticleItemList = {
   title: string
@@ -15,6 +15,7 @@ export type ArticleItemList = {
     long: string
     real: Date
   }
+  index?: number
 }
 
 export function GetArticles(locale: string): ArticleItemList[] {
