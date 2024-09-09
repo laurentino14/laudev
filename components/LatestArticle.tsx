@@ -13,6 +13,7 @@ import {
 import { ArticleItemList } from '@/utils/getArticles'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
+import { BorderBeam } from './magicui/border-beam'
 
 export function LatestArticle({
   date,
@@ -24,7 +25,7 @@ export function LatestArticle({
 }: ArticleItemList) {
   let t = useTranslations('page.articles')
   return (
-    <Card className='max-w-1/2 w-full overflow-hidden shadow-none @container'>
+    <Card className='max-w-1/2 relative w-full overflow-hidden shadow-none @container'>
       <div className='flex flex-col @2xl:flex-row'>
         <NextLink
           href={`read/${slug}`}
@@ -94,6 +95,11 @@ export function LatestArticle({
           </CardFooter>
         </div>
       </div>
+      <BorderBeam
+        size={250}
+        duration={12}
+        delay={9}
+      />
     </Card>
   )
 }
