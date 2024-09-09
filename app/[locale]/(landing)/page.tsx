@@ -1,7 +1,8 @@
+import AnimatedGradientText from '@/components/magicui/animated-gradient-text'
+import { ArrowRightIcon } from '@radix-ui/react-icons'
 import { useTranslations } from 'next-intl'
-import Image from 'next/image'
-import { NextLink } from '@/components/NextLink'
 import { unstable_setRequestLocale } from 'next-intl/server'
+import Link from 'next/link'
 
 export default function Home({
   params: { locale },
@@ -12,8 +13,8 @@ export default function Home({
   const t = useTranslations('page.home')
 
   return (
-    <main className=' flex   flex-1 flex-col items-center justify-center '>
-      <div className='max-w-2xl px-4'>
+    <main className=' relative flex flex-1 flex-col items-center justify-center '>
+      <div className=' max-w-2xl px-4'>
         <h1 className='text-center text-3xl font-black tracking-[7.2px] sm:text-5xl dark:text-white'>
           LUCAS LAURENTINO
         </h1>
@@ -21,25 +22,16 @@ export default function Home({
           <span className='tracking-[3px] text-black/50 dark:text-white/50'>
             {t('hero.sub')}
           </span>
-          <NextLink
-            href='https://elevatt.tech'
-            target='_blank'
-            className='bg-background transition-colors'
-          >
-            <Image
-              src='https://cdn.laudev.com.br/logo-h.png'
-              width={152}
-              height={20}
-              className='-mt-1 mix-blend-difference'
-              priority
-              quality={100}
-              alt='Logomarca Elevatt'
-            />
-          </NextLink>
         </h2>
         <p className='mt-12 max-w-xl text-balance text-center font-medium tracking-[-0.8px] sm:text-base dark:text-white'>
           {t('hero.text')}
         </p>
+        <Link href={t('articles.href')}>
+          <AnimatedGradientText className='mt-5 space-x-2 from-blue-500'>
+            ✨<span> {t('articles.text')} </span>
+            <ArrowRightIcon />
+          </AnimatedGradientText>
+        </Link>
       </div>
     </main>
   )

@@ -3,8 +3,12 @@
     "home": {
       "title": "Ola mundo!",
       "hero": {
-        "sub": "Fundador & CEO da",
+        "sub": "Engenheiro de Software Backend",
         "text": "Trabalhando nos bastidores da tecnologia, minha missão é transformar ideias em realidade, linhas de código em aplicações funcionais e desafios em conquistas."
+      },
+      "articles": {
+        "text": "Artigos mais recentes",
+        "href": "/pt/articles"
       }
     },
     "articles": {

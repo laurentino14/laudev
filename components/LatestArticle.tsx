@@ -1,4 +1,7 @@
-import { ArticleItemList } from '@/utils/getArticles'
+import { ReaderIcon } from '@/components/icons/ReaderIcon'
+import { NextLink } from '@/components/NextLink'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -7,12 +10,9 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import Image from 'next/image'
-import { NextLink } from '@/components/NextLink'
-import { Button } from '@/components/ui/button'
+import { ArticleItemList } from '@/utils/getArticles'
 import { useTranslations } from 'next-intl'
-import { Badge } from '@/components/ui/badge'
-import { ReaderIcon } from '@/components/icons/ReaderIcon'
+import Image from 'next/image'
 
 export function LatestArticle({
   date,

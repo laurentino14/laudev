@@ -1,14 +1,11 @@
 'use client'
-import { useTranslations } from 'next-intl'
-import { NextLink } from '@/components/NextLink'
-import { cn } from '@/lib/utils'
-import { NextUsePathname } from '@/components/NextUsePathname'
-import { motion } from 'framer-motion'
-import { SelectLang } from '@/components/SelectLang'
+import { Gear } from '@/components/icons/Gear'
 import { GitHub } from '@/components/icons/GitHub'
+import { NextLink } from '@/components/NextLink'
+import { NextUsePathname } from '@/components/NextUsePathname'
+import { SelectLang } from '@/components/SelectLang'
 import { SwitchTheme } from '@/components/SwitchTheme'
 import { Button } from '@/components/ui/button'
-import Image from 'next/image'
 import {
   Drawer,
   DrawerClose,
@@ -18,13 +15,15 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer'
-import { Gear } from '@/components/icons/Gear'
+import { cn } from '@/lib/utils'
+import { motion } from 'framer-motion'
 import { Squash as Hamburger } from 'hamburger-react'
+import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 
 export function Header() {
   let t: any = useTranslations('header')
-  const menu = ['home', 'articles', 'projects', 'vision'] as const
+  const menu = ['home', 'articles', 'vision']
 
   const [windowVW, setWindowVW] = useState<number>(0)
   useEffect(() => {
@@ -53,23 +52,8 @@ export function Header() {
         },
       )}
     >
-      <div className='mt-2 flex h-16 w-full items-center justify-between '>
-        <NextLink
-          href='https://elevatt.tech'
-          target='_blank'
-          className='bg-background transition-colors'
-        >
-          <Image
-            src='https://cdn.laudev.com.br/logo-h.png'
-            width={152}
-            height={20}
-            className='mix-blend-difference'
-            priority
-            quality={100}
-            alt='Logomarca Elevatt'
-          />
-        </NextLink>
-        <nav className='hidden lg:flex'>
+      <div className='mt-2 flex h-16 w-full  items-center justify-end lg:justify-between '>
+        <nav className='hidden space-x-2 lg:flex'>
           {menu.map((it: string, i: number) => {
             const isActive = path === t(`menu.${it}.href`)
             return (

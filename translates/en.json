@@ -3,8 +3,12 @@
     "home": {
       "title": "Hello world!",
       "hero": {
-        "sub": "Founder & CEO at",
+        "sub": "Backend Software Engineer",
         "text": "Working behind the scenes of technology, my mission is to turn ideas into reality, lines of code into functional applications, and challenges into achievements."
+      },
+      "articles": {
+        "text": "Latest articles",
+        "href": "/articles"
       }
     },
     "articles": {
@@ -26,10 +30,6 @@
       "articles": {
         "href": "/articles",
         "text": "Articles"
-      },
-      "projects": {
-        "href": "/projects",
-        "text": "Projects"
       },
       "vision": {
         "href": "/vision",
